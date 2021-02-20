@@ -11,13 +11,15 @@ calli.initialize().then(function () {
 
         app.get("/employees", (req, res) => {
             if (typeof req.query.department == "undefined") {
-                calli.getAllEmployees().then(function (data) { res.send(data); })
+                calli.getAllEmployees().then(function (data) { res.send(data); }).catch(()=>{
+                    res.json({message:"no results"})
+                })
             }
             else {
 
-                calli.getEmployeesbyDepartment(req.query.department).then(function (data1) { res.send(data1) });
-            }
-        });
+                calli.getEmployeesbyDepartment(req.query.department).then(function (data1) { res.send(data1) }).catch(()=>{
+                    res.json({message:"no results"});
+            })}});
 
         app.get("/departments", (req, res) => {
             calli.getDepartments().then(function (data) { res.send(data); }).catch((data) => {
