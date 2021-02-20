@@ -21,14 +21,14 @@ calli.initialize().then(function () {
 
         app.get("/departments", (req, res) => {
             calli.getDepartments().then(function (data) { res.send(data); }).catch((data) => {
-                res.send(data)
+                res.json({message:"no results"})
             });
 
         });
 
         app.get("/managers", (req, res) => {
             calli.getManagers().then(function (data) { res.send(data); }).catch((data) => {
-                res.send(data)
+                res.json({message:"no results"})
             });
 
 
