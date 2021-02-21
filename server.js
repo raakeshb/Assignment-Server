@@ -14,7 +14,7 @@ calli.initialize().then(function () {
                 })
             }
             else {
-                calli.getAllEmployees().then(function (data1) { res.send(data1) }).catch(() => {
+                calli.getAllEmployees().then(function (data) { res.send(data) }).catch(() => {
                     res.json({ message: "no results" });
                 })
             }
