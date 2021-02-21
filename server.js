@@ -7,30 +7,29 @@ const Port = process.env.PORT || 8080;
 calli.initialize().then(function () {
     app.listen(Port, () => {
         console.log("Listening on this port: " + Port);
-
-
         app.get("/employees", (req, res) => {
-            if (typeof req.query.department == "undefined") {
-                calli.getAllEmployees().then(function (data) { res.send(data); }).catch(()=>{
-                    res.json({message:"no results"})
+            if (typeof req.query.department != "undefined") {
+                calli.getEmployeesbyDepartment(req.query.department).then(function (data) { res.send(data); }).catch(() => {
+                    res.json({ message: "no results" })
                 })
             }
             else {
-
-                calli.getEmployeesbyDepartment(req.query.department).then(function (data1) { res.send(data1) }).catch(()=>{
-                    res.json({message:"no results"});
-            })}});
+                calli.getAllEmployees().then(function (data1) { res.send(data1) }).catch(() => {
+                    res.json({ message: "no results" });
+                })
+            }
+        });
 
         app.get("/departments", (req, res) => {
             calli.getDepartments().then(function (data) { res.send(data); }).catch((data) => {
-                res.json({message:"no results"})
+                res.json({ message: "no results" })
             });
 
         });
 
         app.get("/managers", (req, res) => {
             calli.getManagers().then(function (data) { res.send(data); }).catch((data) => {
-                res.json({message:"no results"})
+                res.json({ message: "no results" })
             });
 
 
