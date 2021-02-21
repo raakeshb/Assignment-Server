@@ -37,7 +37,7 @@ module.exports.getAllEmployees = function () {
         if (allData.employees.length == 0) {
             reject("no results returned");
         } else {
-            //console.log("im here");
+
             resolve(allData.employees);
         }
     });
@@ -71,18 +71,16 @@ module.exports.getManagers = function () {
 
 module.exports.getEmployeesbyDepartment = function (deptno) {
     return new Promise(function (resolve, reject) {
-        let array=[]
+        let array = []
         if (allData.employees.length == 0) {
             reject("no results returned");
         } else {
-            for(let i=0;i<allData.employees.length;i++)
-            {
-                if(allData.employees[i].department == deptno)
-                {
+            for (let i = 0; i < allData.employees.length; i++) {
+                if (allData.employees[i].department == deptno) {
                     array.push(allData.employees[i]);
                 }
             }
-            
+
         }
         resolve(array);
     });
@@ -90,20 +88,18 @@ module.exports.getEmployeesbyDepartment = function (deptno) {
 
 module.exports.getEmployeesbyNum = function (Num) {
     return new Promise(function (resolve, reject) {
-    
+
         if (allData.employees.length == 0) {
             reject("no results returned");
         } else {
-            for(let i=0;i<allData.employees.length;i++)
-            {
-                if(allData.employees[i].employeeNum == Num)
-                {
+            for (let i = 0; i < allData.employees.length; i++) {
+                if (allData.employees[i].employeeNum == Num) {
                     resolve(allData.employees[i]);
                 }
             }
-            
+
         }
-       
+
     });
 }
 
