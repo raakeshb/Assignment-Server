@@ -8,6 +8,7 @@ calli.initialize().then(function () {
     app.listen(Port, () => {
         console.log("Listening on this port: " + Port);
     })
+    
     app.get("/employees", (req, res) => {
         if (typeof req.query.department != "undefined") {
             calli.getEmployeesbyDepartment(req.query.department).then(function (data) { res.send(data); }).catch(() => {
@@ -56,9 +57,9 @@ calli.initialize().then(function () {
         res.sendFile(path.join(__dirname, "/views/htmlDemo.html"));
     })
 
-
+    app.use(express.static("public"));
     app.get("/:nonsense", (req, res) => {
-        res.status(404).sendFile(path.join(__dirname, "download.jpg"));
+        res.status(404).sendFile(path.join(__dirname, "custom.html"));
     })
 
 
