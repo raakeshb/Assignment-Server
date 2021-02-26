@@ -69,9 +69,10 @@ calli.initialize().then(function () {
     })
 
     app.use(express.static("public"));
-    app.get("/:nonsense", (req, res) => {
+     app.get("/:nonsense", (req, res) => {
         res.status(404).sendFile(path.join(__dirname, "custom.html"));
-    })
+     })
+    
 
 
 
