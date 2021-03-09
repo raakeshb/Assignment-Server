@@ -103,17 +103,16 @@ module.exports.getEmployeesbyNum = function (Num) {
     });
 }
 
-module.exports.addEmployee = function(Dataa){
+module.exports.addEmployee = function (Dataa) {
     return new Promise((resolve, reject) => {
-            if (typeof Dataa.isManager == "undefined")
-            {
-                Dataa.isManager =false;
-                }
-            else { Dataa.isManager = true;            }
-            Dataa.employeeManagerNum = allData.employees.length + 1;
-            allData.employees.push(Dataa);
-            resolve(allData.employees);
-        })
+        if (typeof Dataa.isManager == "undefined") {
+            Dataa.isManager = false;
+        }
+        else { Dataa.isManager = true; }
+        Dataa.employeeManagerNum = allData.employees.length + 1;
+        allData.employees.push(Dataa);
+        resolve(allData.employees);
+    })
 
 }
 
