@@ -105,7 +105,11 @@ module.exports.getEmployeesbyNum = function (Num) {
 
 module.exports.addEmployee = function(Dataa){
     return new Promise((resolve, reject) => {
-            Dataa.isManager = (Dataa.isManager) ? true : false;
+            if (typeof Dataa.isManager == "undefined")
+            {
+                Dataa.isManager =false;
+                }
+            else { Dataa.isManager = true;            }
             Dataa.employeeManagerNum = allData.employees.length + 1;
             allData.employees.push(Dataa);
             resolve(allData.employees);
