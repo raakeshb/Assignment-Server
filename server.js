@@ -74,7 +74,7 @@ calli.initialize().then(function () {
     app.use(express.static("public"));
     app.use(bodyparser.urlencoded({ extended: true }));
     app.get("/:nonsense", (req, res) => {
-        res.status(404).sendFile(path.join(__dirname, "custom.html"));
+        res.status(404).sendFile(path.join(__dirname, "/views/custom.html"));
     })
 
     app.get("/employees/add", (req, res) => {
