@@ -103,4 +103,14 @@ module.exports.getEmployeesbyNum = function (Num) {
     });
 }
 
+module.exports.addEmployee = function(Dataa){
+    return new Promise((resolve, reject) => {
+            Dataa.isManager = (Dataa.isManager) ? true : false;
+            Dataa.employeeManagerNum = allData.employees.length + 1;
+            allData.employees.push(Dataa);
+            resolve(allData.employees);
+        })
+
+}
+
 

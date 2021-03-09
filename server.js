@@ -13,6 +13,7 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const calli = require('./modules/serverDataModule.js');
+const bodyparser = require('body-parser');
 const Port = process.env.PORT || 8080;
 
 calli.initialize().then(function () {
@@ -69,11 +70,21 @@ calli.initialize().then(function () {
     })
 
     app.use(express.static("public"));
+    app.use(bodyparser.urlencoded({extended:true}));
      app.get("/:nonsense", (req, res) => {
         res.status(404).sendFile(path.join(__dirname, "custom.html"));
      })
     
-
+     app.get("/employees/add",(req,res)=>{
+         res.sendFile(path.join(__dirname,"/views/addEmployee.html"));
+     })
+     app.post("/employees/add",(req,res)=>{
+         calli.addEmployee(req.body).then(function(data){
+             res.send(data)
+         }).catch(function(data){
+             res.send(data);
+         })
+     })
 
 
 }).catch(function (err) {

@@ -1,0 +1,69 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Megrim&display=swap&family=Orbitron:wght@500&family=Shadows+Into+Light&display=swap&family=Kaushan+Script&display=swap&family=Dancing+Script&family=Play&display=swap&family=Lily+Script+One&display=swap');
+.bg-light {
+   background-color: rgb(238, 165, 55) !important;
+    box-shadow: 5px 5px #888888;
+}
+
+html, body{
+    background-image: linear-gradient( 89.2deg,  rgb(241, 219, 191) 22.3%, rgb(98, 110, 117) 84.1% );
+ 
+background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.navbar {
+    background: rebeccapurple;
+}
+
+.navbar-brand{
+    font-family: 'Lily Script One';
+    color: rgb(0, 17, 255) !important;
+    text-shadow: 5px -6px 9px rgb(39, 1, 255) ; }
+ a.nav-link{
+     
+    font-family: 'Kaushan Script';
+
+}
+
+a.nav-link:hover{
+    color :rgb(5, 255, 5) !important;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Orbitron';
+    text-shadow: 5px -6px 9px rgba(6, 2, 255, 0.842) ; 
+}
+
+td:nth-child(odd){
+    color:red;
+    background-image: radial-gradient( circle farthest-corner at 11.7% 80.6%,  rgba(249,185,255,1) 0%, rgba(177,172,255,1) 49.3%, rgba(98,203,255,1) 89% );
+
+}
+
+a{
+    color: rgb(255, 117, 4);
+}
+a:hover{
+    color : rgb(255, 0, 255);
+}
+
+.btn {
+    color:black;
+background-color: linear-gradient(180deg ,rgb(220, 20, 20),rgb(10, 162, 233)) ;
+}
+
+input.btn:hover{
+        color: chartreuse;
+}
+
+legend{
+    padding-top: 25px !important;
+    font-family: 'Faster One';
+    color:rgb(175, 12, 250) ;
+    text-shadow: 5px -6px 9px rgba(255, 0, 0, 0.842) ;
+}
