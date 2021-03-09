@@ -82,7 +82,7 @@ calli.initialize().then(function () {
     })
     app.post("/employees/add", (req, res) => {
         calli.addEmployee(req.body).then(function (data) {
-            res.send(data)
+            res.redirect("/employees")
         }).catch(function (data) {
             res.send(data);
         })
