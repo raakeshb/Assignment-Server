@@ -109,7 +109,7 @@ module.exports.addEmployee = function (Dataa) {
             Dataa.isManager = false;
         }
         else { Dataa.isManager = true; }
-        Dataa.employeeManagerNum = allData.employees.length + 1;
+        Dataa.employeeNum = allData.employees.length + 1;
         allData.employees.push(Dataa);
         resolve(allData.employees);
     })
