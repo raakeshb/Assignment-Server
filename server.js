@@ -15,7 +15,6 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const calli = require('./modules/serverDataModule.js');
-const bodyparser = require('body-parser');
 const Port = process.env.PORT || 8080;
 
 calli.initialize().then(function () {
@@ -72,7 +71,7 @@ calli.initialize().then(function () {
     })
 
     app.use(express.static("public"));
-    app.use(bodyparser.urlencoded({ extended: true }));
+    app.use(express.urlencoded({ extended: true }));
     app.get("/:nonsense", (req, res) => {
         res.status(404).sendFile(path.join(__dirname, "/views/custom.html"));
     })
