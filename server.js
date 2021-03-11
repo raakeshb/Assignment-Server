@@ -35,7 +35,7 @@ calli.initialize().then(function () {
         }
     });
 
-    app.get("/departments", (req, res) => {
+    app.get("/departments", (req, res) => {    
         calli.getDepartments().then(function (data) { res.send(data); }).catch((err) => {
             res.json({ message: err })
         });
