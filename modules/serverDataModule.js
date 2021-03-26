@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const { resolve } = require('path');
 
 class Data {
     constructor(employees, departments) {
@@ -89,6 +90,7 @@ module.exports.getEmployeesbyDepartment = function (deptno) {
 module.exports.getEmployeesbyNum = function (Num) {
     return new Promise(function (resolve, reject) {
 
+
         if (allData.employees.length == 0) {
             reject("no results returned");
         } else {
@@ -116,4 +118,60 @@ module.exports.addEmployee = function (Dataa) {
 
 }
 
+module.exports.getDepartmentById = function (id) {
+    return new Promise((resolve, reject) => {
 
+
+        for (let i = 0; i < allData.department.length; i++) {
+
+
+            if (allData.department[i].departmentId == id) {
+
+                resolve(allData.department[i]);
+            }
+
+
+        }
+        reject("query returned 0 results")
+
+    })
+}
+
+
+module.exports.updateEmployee = function (empdata) {
+    return new Promise((resolve, reject) => {
+
+        let temp = 0;
+        for (let i = 0; i < allData.employees.length; i++) {
+
+
+            if (allData.employees[i].SSN == empdata.SSN) {
+
+                temp = i;
+
+            }
+
+        }
+
+        allData.employees[temp].firstName = empdata.firstName;
+        allData.employees[temp].lastName = empdata.lastName;
+        allData.employees[temp].email = empdata.email;
+        allData.employees[temp].addressStreet = empdata.addressStreet;
+        allData.employees[temp].addressCity = empdata.addressCity;
+        allData.employees[temp].addressState = empdata.addressState;
+        allData.employees[temp].addressPostal = empdata.addressPostal;
+        if (empdata.isManager == 'on') {
+            allData.employees[temp].isManager = true;
+        }
+        else {
+            allData.employees[temp].isManager = false;
+        }
+        allData.employees[temp].employeeManagerNum = empdata.employeeManagerNum;
+        allData.employees[temp].status = empdata.status;
+        allData.employees[temp].department = empdata.department;
+        resolve();
+    })
+
+
+
+}

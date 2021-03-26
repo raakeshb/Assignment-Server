@@ -58,7 +58,7 @@ a:visited{
 
 .btn {
     color:black;
-background-color: linear-gradient(180deg ,rgb(220, 20, 20),rgb(10, 162, 233)) ;
+background-color: red ;
 }
 
 input.btn:hover{
