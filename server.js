@@ -16,7 +16,7 @@ const app = express();
 const path = require('path')
 const exphbs = require('express-handlebars');
 const calli = require('./modules/serverDataModule.js');
-//const { mainModule } = require('process');
+const { mainModule } = require('process');
 const Port = process.env.PORT || 8080;
 
 
