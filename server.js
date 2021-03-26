@@ -16,7 +16,7 @@ const app = express();
 const path = require('path')
 const exphbs = require('express-handlebars');
 const calli = require('./modules/serverDataModule.js');
-const { mainModule } = require('process');
+//const { mainModule } = require('process');
 const Port = process.env.PORT || 8080;
 
 
@@ -90,29 +90,29 @@ calli.initialize().then(function () {
 
     app.get("/", (req, res) => {
         res.render("home");
-        // res.sendFile(path.join(__dirname, "/views/home.html"));
+
     })
 
     app.get("/about", (req, res) => {
         res.render("about");
-        //res.sendFile(path.join(__dirname, "/views/about.html"));
+
     })
 
     app.get("/htmlDemo", (req, res) => {
         res.render("htmlDemo");
-        //res.sendFile(path.join(__dirname, "/views/htmlDemo.html"));
+
     })
 
     app.use(express.static("public"));
     app.use(express.urlencoded({ extended: true }));
     app.get("/:nonsense", (req, res) => {
         res.render("custom");
-        //res.status(404).sendFile(path.join(__dirname, "/views/custom.html"));
+
     })
 
     app.get("/employees/add", (req, res) => {
         res.render("addEmployee")
-        //res.sendFile(path.join(__dirname, "/views/addEmployee.html"));
+
     })
     app.post("/employees/add", (req, res) => {
         calli.addEmployee(req.body).then(function (data) {
@@ -133,8 +133,8 @@ calli.initialize().then(function () {
 
     app.post("/employee/update", (req, res) => {
         calli.updateEmployee(req.body).then(function () {
-           res.redirect("/employees")
-          
+            res.redirect("/employees")
+
         })
     })
 
